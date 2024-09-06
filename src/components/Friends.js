@@ -13,7 +13,7 @@ const Friends = ({ setPage }) => {
 
     const shareOnTelegram = (bonus) => {
         const referralCode = Math.random().toString(36).substring(2, 15);
-        const referralLink = `https://t.me/tonice_clicker_bot/start?startapp=${referralCode}`;
+        const referralLink = `https://t.me/test_minnnes_bot/Nothing/start?startapp=${referralCode}`;
         window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=Join%20Ton%20Ice%20and%20get%20${bonus}K%20points!`, '_blank');
         inviteFriend(bonus);
     };
