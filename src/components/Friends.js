@@ -62,28 +62,6 @@ const Friends = ({ setPage }) => {
                 )}
             </div>
             <button className="invite-button" onClick={() => shareOnTelegram(5.00)}>Invite friend</button>
-            <div className="navigation">
-                <div onClick={() => setPage('game')} className="nav-item">
-                    <i className="fas fa-cube"></i>
-                    <p>Game</p>
-                </div>
-                <div onClick={() => setPage('mine')} className="nav-item">
-                    <i className="fas fa-hammer"></i>
-                    <p>Mine</p>
-                </div>
-                <div onClick={() => setPage('friends')} className="nav-item active">
-                    <i className="fas fa-users"></i>
-                    <p>Friends</p>
-                </div>
-                <div onClick={() => setPage('earn')} className="nav-item">
-                    <i className="fas fa-coins"></i>
-                    <p>Earn</p>
-                </div>
-                <div onClick={() => setPage('airdrop')} className="nav-item">
-                    <i className="fas fa-parachute-box"></i>
-                    <p>Airdrop</p>
-                </div>
-            </div>
         </div>
     );
 };
