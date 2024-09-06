@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Game.css'; // استایل مربوط به این کامپوننت
+import '../styles/Game.css';
 
 const Game = ({ setPage }) => {
   const [count, setCount] = useState(1965);
