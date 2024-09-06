@@ -1,0 +1,120 @@
+.friends-container {
+    padding: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.invite-section {
+    background-color: #2d2d2d;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.invite-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #a1a1a1;
+    margin-bottom: 16px;
+}
+
+.invite-card {
+    background-color: #383838;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.invite-text {
+    font-weight: bold;
+}
+
+.bonus {
+    color: #ffbb00;
+}
+
+.more-bonuses {
+    color: #4f83ff;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.friends-list {
+    background-color: #2d2d2d;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.list-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.no-friends {
+    color: #a1a1a1;
+}
+
+.friend-card {
+    background-color: #383838;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.friend-name {
+    font-weight: bold;
+}
+
+.friend-bonus {
+    color: #ffbb00;
+    margin-left: auto;
+}
+
+.invite-button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #a1a1a1;
+    cursor: pointer;
+}
+
+.nav-item.active {
+    color: white;
+}

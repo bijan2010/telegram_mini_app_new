@@ -1,0 +1,112 @@
+/* components/Mine.css */
+
+.mine-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.mine-header {
+    width: 100%;
+    max-width: 24rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2d3748;
+    padding: 0.5rem;
+    border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.mine-title {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.mine-content {
+    background-color: #2d3748;
+    padding: 1rem;
+    border-radius: 0 0 0.375rem 0.375rem;
+}
+
+.mine-profile {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.mine-avatar {
+    background-color: #ecc94b;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mine-username {
+    margin-left: 0.5rem;
+    color: white;
+}
+
+.mine-sync {
+    background-color: #4a5568;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+}
+
+.mine-upgrade {
+    background-color: #4a5568;
+    padding: 1rem;
+    border-radius: 0.375rem;
+}
+
+.mine-stats {
+    background-color: #2d3748;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.upgrade-btn {
+    background-color: #718096;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    width: 100%;
+    text-align: center;
+}
+
+.mine-info {
+    background-color: #4a5568;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.mine-footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2d3748;
+    padding: 0.5rem;
+    border-radius: 0 0 0.375rem 0.375rem;
+    margin-top: 1rem;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+}

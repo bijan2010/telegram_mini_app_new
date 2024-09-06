@@ -1,0 +1,99 @@
+.earn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.earn-card {
+  background-color: #2d3748;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.earn-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.earn-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.earn-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.earn-section {
+  margin-bottom: 1rem;
+}
+
+.earn-section-title {
+  font-size: 1.2rem;
+  font-weight: semi-bold;
+  margin-bottom: 0.5rem;
+}
+
+.earn-task {
+  background-color: #4a5568;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.task-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.task-details {
+  flex-grow: 1;
+}
+
+.task-reward {
+  display: flex;
+  align-items: center;
+}
+
+.reward-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.25rem;
+}
+
+.task-clock {
+  color: #ecc94b;
+}
+
+.earn-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2d3748;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.nav-button.active {
+  color: #63b3ed;
+}

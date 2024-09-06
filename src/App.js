@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Game from './components/Game';
+import Mine from './components/Mine';
+import Friends from './components/Friends';
+import Earn from './components/Earn';
+import Airdrop from './components/Airdrop';  // Import Airdrop component
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/game" element={<Game />} />
+        <Route path="/mine" element={<Mine />} />
+        <Route path="/friends" element={<Friends />} />
+        <Route path="/earn" element={<Earn />} />
+        <Route path="/airdrop" element={<Airdrop />} />  {/* Airdrop route */}
+        <Route path="/" element={<Game />} />
+      </Routes>
+    </Router>
   );
 }
 

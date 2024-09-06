@@ -1,0 +1,117 @@
+.airdrop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.airdrop-card {
+    background-color: #2d3748;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.airdrop-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.airdrop-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.airdrop-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.airdrop-description {
+    text-align: center;
+    color: #a0aec0;
+    margin-bottom: 1rem;
+}
+
+.airdrop-section {
+    margin-bottom: 1rem;
+}
+
+.airdrop-section-title {
+    font-size: 1.2rem;
+    font-weight: semi-bold;
+    margin-bottom: 0.5rem;
+}
+
+.airdrop-wallet-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3182ce;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.airdrop-wallet-content {
+    display: flex;
+    align-items: center;
+}
+
+.airdrop-task {
+    background-color: #4a5568;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.airdrop-task-content {
+    display: flex;
+    align-items: center;
+}
+
+.airdrop-task-title {
+    font-weight: bold;
+}
+
+.airdrop-task-reward {
+    color: #ecc94b;
+}
+
+.airdrop-task-ton {
+    font-weight: bold;
+}
+
+.airdrop-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2d3748;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.nav-button.active {
+    color: #63b3ed;
+}
