@@ -1,36 +1,31 @@
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
+/* ایجاد سایه برای ایجاد جلوه سه‌بعدی */
+.header, .game-info, .energy-info, .image-container img, button {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: black;
-    padding: 0.5rem;
+/* افزودن افکت عدد +4 هنگام کلیک */
+.add-effect {
+    position: absolute;
+    font-size: 24px;
+    color: #00f;
+    font-weight: bold;
+    animation: moveUp 1s ease-out forwards;
 }
 
-.game-info {
-    background-color: #1a1a1a;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 10px;
-    margin-top: 1rem;
+@keyframes moveUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
 }
 
-.image-container img {
-    border-radius: 50%;
-    border: 4px solid #00f;
-}
-
-.energy-info {
-    display: flex;
-    justify-content: space-between;
-    background-color: #1a1a1a;
-    padding: 0.5rem;
-    margin-top: 1rem;
+/* حالت انتخاب شده برای منوی پایین */
+.navigation-item.active {
+    background-color: rgba(0, 0, 255, 0.2);
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 255, 0.5);
     border-radius: 10px;
 }

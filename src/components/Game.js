@@ -5,11 +5,13 @@ const Game = ({ setPage }) => {
   const [energy, setEnergy] = useState(1248);
   const [isClicking, setIsClicking] = useState(false);
   const [timer, setTimer] = useState(null);
+  const [showEffect, setShowEffect] = useState(false);
 
   const handleClick = () => {
     setCount(count + 4);
     setEnergy(energy - 4);
     setIsClicking(true);
+    setShowEffect(true); // نمایش جلوه عدد +4
 
     if (timer) {
       clearTimeout(timer);
@@ -17,7 +19,8 @@ const Game = ({ setPage }) => {
 
     setTimer(setTimeout(() => {
       setIsClicking(false);
-    }, 3000));
+      setShowEffect(false); // پنهان کردن جلوه بعد از انیمیشن
+    }, 1000));
   };
 
   useEffect(() => {
@@ -68,6 +71,11 @@ const Game = ({ setPage }) => {
             className="rounded-full border-4 border-blue-500 cursor-pointer" 
             onClick={handleClick} 
           />
+          {showEffect && (
+            <div className="add-effect">
+              +4 <i className="fas fa-snowflake"></i>
+            </div>
+          )}
         </div>
       </div>
 
