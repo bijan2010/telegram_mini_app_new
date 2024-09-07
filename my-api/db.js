@@ -19,11 +19,11 @@ async function addFriendToUser(userId, friendName, points, bonus) {
 
     let referralLink;
     if (result.rows.length > 0 && result.rows[0].referral_link) {
-      // اگر لینک وجود دارد، از آن استفاده کنید
+      // اگر لینک وجود دارد، از همان لینک استفاده کنید
       referralLink = result.rows[0].referral_link;
     } else {
       // اگر لینک وجود ندارد، لینک جدید ایجاد کنید و آن را در دیتابیس ذخیره کنید
-      referralLink = `https://t.me/test_minnnes_bot/start?referral=${userId}`;
+      referralLink = `https://t.me/your_bot_name/start?startapp=${userId}`;
       const insertLinkQuery = `INSERT INTO friends (user_id, referral_link) VALUES ($1, $2) ON CONFLICT (user_id) DO UPDATE SET referral_link = $2`;
       await client.query(insertLinkQuery, [userId, referralLink]);
     }
