@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
-import '../styles/Friends.css'; // اگر فایل Mine.css در فولدر styles داخل src قرار دارد
+import React, { useState, useEffect } from 'react';
+import '../styles/Friends.css'; // فرض می‌کنیم فایل CSS شما در این مسیر قرار دارد.
 
-const Friends = ({ setPage }) => {
+const Friends = ({ setPage, userId }) => {
     const [friends, setFriends] = useState([]);
     const [totalPoints, setTotalPoints] = useState(0);
+
+    // Load friends when the component is mounted
+    useEffect(() => {
+        // Call API to get the user's friends
+        fetch(`/api/get-friends?userId=${userId}`)
+            .then(response => response.json())
+            .then(data => setFriends(data.friends))
+            .catch(error => console.error("Error loading friends:", error));
+    }, [userId]);
 
     const inviteFriend = (bonus) => {
         const newFriend = { name: "New Friend", points: 0, bonus: bonus };
@@ -11,11 +20,17 @@ const Friends = ({ setPage }) => {
         setTotalPoints(totalPoints + bonus);
     };
 
+    // تغییر برای دریافت لینک دعوت از API
     const shareOnTelegram = (bonus) => {
-        const referralCode = Math.random().toString(36).substring(2, 15);
-        const referralLink = `https://t.me/test_minnnes_bot/Nothing/start?startapp=${referralCode}`;
-        window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=Join%20Ton%20Ice%20and%20get%20${bonus}K%20points!`, '_blank');
-        inviteFriend(bonus);
+        // دریافت لینک دعوت از API
+        fetch(`/api/get-referral-link?userId=${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                const referralLink = data.referralLink; // لینک دعوت منحصربه‌فرد از API دریافت می‌شود
+                window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=Join%20Ton%20Ice%20and%20get%20${bonus}K points!`, '_blank');
+                inviteFriend(bonus); // اضافه کردن دوست به لیست دوستان
+            })
+            .catch(error => console.error("Error fetching referral link:", error));
     };
 
     return (
@@ -28,7 +43,7 @@ const Friends = ({ setPage }) => {
             <div className="invite-section">
                 <h2 className="invite-title">Invite Friends!</h2>
                 <p className="description">You and your friend will receive bonuses</p>
-                <div className="invite-card" onClick={() => inviteFriend(5.00)}>
+                <div className="invite-card" onClick={() => shareOnTelegram(5.00)}>
                     <img src="https://placehold.co/40x40" alt="Gift icon" />
                     <div>
                         <p className="invite-text">Invite a friend</p>

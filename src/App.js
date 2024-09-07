@@ -6,7 +6,7 @@ import Earn from './components/Earn';
 import Airdrop from './components/Airdrop';
 
 const App = () => {
-  const [page, setPage] = useState('game');
+  const [page, setPage] = useState('home');
 
   const renderPage = () => {
     switch (page) {
@@ -30,23 +30,23 @@ const App = () => {
       {renderPage()}
       {/* منوی پایین */}
       <div className="w-full flex justify-around items-center bg-gray-800 p-2 fixed bottom-0">
-        <div className={`flex flex-col items-center cursor-pointer ${page === 'game' ? 'active' : ''}`} onClick={() => setPage('game')}>
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => setPage('game')}>
           <i className="fas fa-cube text-blue-500"></i>
           <span className="text-xs text-white">Game</span>
         </div>
-        <div className={`flex flex-col items-center cursor-pointer ${page === 'mine' ? 'active' : ''}`} onClick={() => setPage('mine')}>
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => setPage('mine')}>
           <i className="fas fa-pickaxe text-yellow-500"></i>
           <span className="text-xs text-white">Mine</span>
         </div>
-        <div className={`flex flex-col items-center cursor-pointer ${page === 'friends' ? 'active' : ''}`} onClick={() => setPage('friends')}>
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => setPage('friends')}>
           <i className="fas fa-users text-red-500"></i>
           <span className="text-xs text-white">Friends</span>
         </div>
-        <div className={`flex flex-col items-center cursor-pointer ${page === 'earn' ? 'active' : ''}`} onClick={() => setPage('earn')}>
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => setPage('earn')}>
           <i className="fas fa-coins text-green-500"></i>
           <span className="text-xs text-white">Earn</span>
         </div>
-        <div className={`flex flex-col items-center cursor-pointer ${page === 'airdrop' ? 'active' : ''}`} onClick={() => setPage('airdrop')}>
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => setPage('airdrop')}>
           <i className="fas fa-gift text-purple-500"></i>
           <span className="text-xs text-white">Airdrop</span>
         </div>
