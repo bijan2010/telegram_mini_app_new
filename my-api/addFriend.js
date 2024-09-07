@@ -1,5 +1,5 @@
 const express = require('express');
-const { addFriendToUser, getReferralLink } = require('./db'); // مسیر صحیح به db.js
+const { addFriendToUser, getReferralLink, getUserFriends } = require('./db'); // مسیر صحیح به db.js
 const app = express();
 
 // برای پشتیبانی از JSON در بدنه درخواست
@@ -30,6 +30,18 @@ app.get('/api/get-referral-link', async (req, res) => {
   } catch (error) {
     console.error('Error fetching referral link:', error);
     res.status(500).json({ error: 'Failed to fetch referral link' });
+  }
+});
+
+// Endpoint برای دریافت لیست دوستان
+app.get('/api/get-friends', async (req, res) => {
+  const { userId } = req.query;
+  try {
+    const friends = await getUserFriends(userId);
+    res.status(200).json({ friends });
+  } catch (error) {
+    console.error('Error fetching friends:', error);
+    res.status(500).json({ error: 'Failed to fetch friends' });
   }
 });
 
