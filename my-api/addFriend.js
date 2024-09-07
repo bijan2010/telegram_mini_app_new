@@ -1,8 +1,6 @@
-// addFriend.js
 const express = require('express');
 const { addFriendToUser, getReferralLink } = require('./db'); // مسیر صحیح به db.js
 const app = express();
-
 
 // برای پشتیبانی از JSON در بدنه درخواست
 app.use(express.json());
