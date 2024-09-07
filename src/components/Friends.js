@@ -27,8 +27,28 @@ const Friends = ({ setPage, userId }) => {
             .then(response => response.json())
             .then(data => {
                 const referralLink = data.referralLink; // لینک دعوت منحصربه‌فرد از API دریافت می‌شود
+                console.log('Referral link received:', referralLink); // لاگ برای بررسی لینک
                 window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=Join%20Ton%20Ice%20and%20get%20${bonus}K points!`, '_blank');
-                inviteFriend(bonus); // اضافه کردن دوست به لیست دوستان
+                
+                // ارسال درخواست برای اضافه کردن دوست به API
+                fetch('/api/add-friend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId: userId,
+                        friendName: "New Friend",
+                        points: 0,
+                        bonus: bonus
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Friend added successfully:', data);
+                    inviteFriend(bonus); // اضافه کردن دوست به لیست دوستان
+                })
+                .catch(error => console.error('Error adding friend:', error));
             })
             .catch(error => console.error("Error fetching referral link:", error));
     };
