@@ -13,7 +13,7 @@ app.post('/api/add-friend', async (req, res) => {
     res.status(200).json({ message: 'Friend added successfully!' });
   } catch (error) {
     console.error('Error adding friend:', error);
-    res.status(500).json({ error: 'Failed to add friend' });
+    res.status(500).json({ error: 'Failed to add friend', details: error.message });
   }
 });
 
@@ -29,7 +29,7 @@ app.get('/api/get-referral-link', async (req, res) => {
     }
   } catch (error) {
     console.error('Error fetching referral link:', error);
-    res.status(500).json({ error: 'Failed to fetch referral link' });
+    res.status(500).json({ error: 'Failed to fetch referral link', details: error.message });
   }
 });
 
@@ -41,11 +41,11 @@ app.get('/api/get-friends', async (req, res) => {
     res.status(200).json({ friends });
   } catch (error) {
     console.error('Error fetching friends:', error);
-    res.status(500).json({ error: 'Failed to fetch friends' });
+    res.status(500).json({ error: 'Failed to fetch friends', details: error.message });
   }
 });
 
-// اجرای سرور
+// تنظیم پورت سرور
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
