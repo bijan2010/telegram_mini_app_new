@@ -1,56 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Friends.css'; // فرض می‌کنیم فایل CSS شما در این مسیر قرار دارد.
+import '../styles/Friends.css'; // مسیر درست به فایل CSS
 
 const Friends = ({ setPage, userId }) => {
     const [friends, setFriends] = useState([]);
     const [totalPoints, setTotalPoints] = useState(0);
 
-    // Load friends when the component is mounted
     useEffect(() => {
-        // Call API to get the user's friends
+        // دریافت لیست دوستان از دیتابیس
         fetch(`/api/get-friends?userId=${userId}`)
             .then(response => response.json())
-            .then(data => setFriends(data.friends))
-            .catch(error => console.error("Error loading friends:", error));
+            .then(data => setFriends(data.friends || []))
+            .catch(error => console.error('Error fetching friends:', error));
     }, [userId]);
 
     const inviteFriend = (bonus) => {
-        const newFriend = { name: "New Friend", points: 0, bonus: bonus };
-        setFriends([...friends, newFriend]);
-        setTotalPoints(totalPoints + bonus);
+        // اضافه کردن امتیاز دعوت به کاربر
+        fetch('/api/add-friend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId, bonus })
+        })
+        .then(() => setTotalPoints(totalPoints + bonus))
+        .catch(error => console.error('Error inviting friend:', error));
     };
 
-    // تغییر برای دریافت لینک دعوت از API
     const shareOnTelegram = (bonus) => {
-        // دریافت لینک دعوت از API
         fetch(`/api/get-referral-link?userId=${userId}`)
             .then(response => response.json())
             .then(data => {
-                const referralLink = data.referralLink; // لینک دعوت منحصربه‌فرد از API دریافت می‌شود
-                console.log('Referral link received:', referralLink); // لاگ برای بررسی لینک
+                const referralLink = data.referralLink;
                 window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=Join%20Ton%20Ice%20and%20get%20${bonus}K points!`, '_blank');
-                
-                // ارسال درخواست برای اضافه کردن دوست به API
-                fetch('/api/add-friend', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        userId: userId,
-                        friendName: "New Friend",
-                        points: 0,
-                        bonus: bonus
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Friend added successfully:', data);
-                    inviteFriend(bonus); // اضافه کردن دوست به لیست دوستان
-                })
-                .catch(error => console.error('Error adding friend:', error));
+                inviteFriend(bonus);
             })
-            .catch(error => console.error("Error fetching referral link:", error));
+            .catch(error => console.error('Error fetching referral link:', error));
     };
 
     return (

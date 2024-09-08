@@ -1,0 +1,25 @@
+// schema.prisma
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL") // لینک اتصال به دیتابیس از فایل .env
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  username  String
+  email     String
+  referrals Referral[]  // ارتباط با مدل Referral
+}
+
+model Referral {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  referred   User?    @relation(fields: [userId], references: [id])
+  referrer   String?  @db.ObjectId
+  createdAt  DateTime @default(now())
+}
